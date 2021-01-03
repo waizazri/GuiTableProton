@@ -12,6 +12,7 @@ import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -23,6 +24,11 @@ public class GuiProton extends javax.swing.JFrame {
     Date date = new Date();
     Calendar cal = Calendar.getInstance();
     DefaultTableModel model;
+    
+    ImageIcon iriz = new ImageIcon("iriz.jpg");
+    
+    
+    
 
     /**
      * Creates new form GuiProton
@@ -31,6 +37,7 @@ public class GuiProton extends javax.swing.JFrame {
         initComponents();
         
         dateTF.setText(" "+ dateFormat.format(date));
+        
     }
 
     /**
@@ -69,6 +76,8 @@ public class GuiProton extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         comboTF = new javax.swing.JComboBox<>();
+        jPanel2 = new javax.swing.JPanel();
+        Spec = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,14 +85,16 @@ public class GuiProton extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(14, 14, 14, 14, new java.awt.Color(236, 236, 236)));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("EXIT");
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButton1.setText("X");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 720, 70, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 110, -1, 30));
 
+        table.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -101,22 +112,43 @@ public class GuiProton extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(table);
+        if (table.getColumnModel().getColumnCount() > 0) {
+            table.getColumnModel().getColumn(0).setPreferredWidth(80);
+            table.getColumnModel().getColumn(1).setPreferredWidth(100);
+            table.getColumnModel().getColumn(2).setPreferredWidth(250);
+            table.getColumnModel().getColumn(3).setPreferredWidth(100);
+            table.getColumnModel().getColumn(5).setPreferredWidth(80);
+        }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 790, 440));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 790, 420));
 
+        jButton2.setFont(new java.awt.Font("Permanent Marker", 1, 18)); // NOI18N
         jButton2.setText("Proton X50");
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 210, 50));
+        jButton2.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(255, 255, 255)));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 210, 50));
 
+        jButton3.setFont(new java.awt.Font("Permanent Marker", 1, 18)); // NOI18N
         jButton3.setText("Proton X70");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 220, 50));
+        jButton3.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(255, 255, 255)));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 220, 50));
 
+        jButton4.setFont(new java.awt.Font("Permanent Marker", 1, 18)); // NOI18N
         jButton4.setText("Proton Iriz");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 210, 50));
+        jButton4.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(255, 255, 255)));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 210, 50));
 
+        jButton5.setFont(new java.awt.Font("Permanent Marker", 1, 18)); // NOI18N
         jButton5.setText("Proton Saga");
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 220, 50));
+        jButton5.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(255, 255, 255)));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 220, 50));
 
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(0, 204, 0));
         jButton6.setText("RESET");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +157,14 @@ public class GuiProton extends javax.swing.JFrame {
         });
         jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 160, 80, 40));
 
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(204, 0, 51));
         jButton7.setText("DELETE");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 213, 80, 40));
 
         jLabel1.setFont(new java.awt.Font("Bungee Inline", 0, 36)); // NOI18N
@@ -157,10 +196,20 @@ public class GuiProton extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("PHONE NUMBER");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 230, -1, -1));
-        jPanel1.add(nameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 220, -1));
+
+        nameTF.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(nameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 220, 20));
+
+        registerTF.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(registerTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 140, 220, -1));
+
+        addressTF.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(addressTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 170, 220, -1));
+
+        emailTF.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(emailTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, 220, -1));
+
+        phoneTF.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(phoneTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 230, 220, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -175,6 +224,7 @@ public class GuiProton extends javax.swing.JFrame {
         });
         jPanel1.add(dateTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 30, 90, -1));
 
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton8.setText("ENTER");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,6 +238,7 @@ public class GuiProton extends javax.swing.JFrame {
         jLabel8.setText("CHOOSE CAR:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, -1, -1));
 
+        comboTF.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         comboTF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proton Iriz", "Proton Saga", "Proton X50", "Proton X70" }));
         comboTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,6 +246,19 @@ public class GuiProton extends javax.swing.JFrame {
             }
         });
         jPanel1.add(comboTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 260, 220, -1));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Spec, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Spec, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 460, 400));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -204,7 +268,10 @@ public class GuiProton extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -246,6 +313,7 @@ public class GuiProton extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         //rame = new JFrame();
+        System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void comboTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTFActionPerformed
@@ -255,6 +323,28 @@ public class GuiProton extends javax.swing.JFrame {
     private void dateTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dateTFActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model;
+        model = (DefaultTableModel) table.getModel();
+        if(table.getSelectedRow()==-1){
+            if(table.getRowCount()==0){
+                
+                
+            }else{
+                
+            }
+        }else{
+            model.removeRow(table.getSelectedRow());
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        Spec.setIcon(iriz);
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -292,6 +382,7 @@ public class GuiProton extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Spec;
     private javax.swing.JTextField addressTF;
     private javax.swing.JComboBox<String> comboTF;
     private javax.swing.JTextField dateTF;
@@ -313,6 +404,7 @@ public class GuiProton extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameTF;
